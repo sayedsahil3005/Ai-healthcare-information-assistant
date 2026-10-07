@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Healthcare Information Assistant</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #eef7f8;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #087f8c;
+        }
+
+        p {
+            color: #555;
+            font-size: 18px;
+        }
+
+        input {
+            width: 80%;
+            padding: 15px;
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 12px 25px;
+            background: #087f8c;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #065f67;
+        }
+
+        #answer {
+            margin-top: 25px;
+            padding: 20px;
+            background: #f1fafa;
+            border-radius: 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>🩺 AI Healthcare Information Assistant</h1>
+
+        <p>
+            Get reliable general health information and guidance.
+        </p>
+
+        <input
+            type="text"
+            id="question"
+            placeholder="Ask a health-related question..."
+        >
+
+        <br>
+
+        <button onclick="getAnswer()">Ask Assistant</button>
+
+        <div id="answer">
+            Your answer will appear here.
+        </div>
+
+    </div>
+
+    <script>
+        function getAnswer() {
+
+        const question = document.getElementById("question").value
+            .trim()
+            .toLowerCase();
+
+        const answer = document.getElementById("answer");
+
+        if (question === "") {
+            answer.innerHTML = "Please enter a health-related question.";
+            return;
+        }
+
+        if (question.includes("fever")) {
+
+            answer.innerHTML =
+                "<b>Fever:</b><br>" +
+                "Common symptoms of fever may include increased body temperature, sweating, chills, headache, body aches, weakness and tiredness.<br><br>" +
+                "If the fever is severe, persistent, or accompanied by serious symptoms, consult a healthcare professional.";
+
+        } else if (question.includes("headache")) {
+
+            answer.innerHTML =
+                "<b>Headache:</b><br>" +
+                "Headaches can have many causes, including stress, dehydration, lack of sleep, skipped meals, eye strain or infections.<br><br>" +
+                "Rest, drinking enough water and getting adequate sleep may help.";
+
+        } else if (question.includes("cough")) {
+
+            answer.innerHTML =
+                "<b>Cough:</b><br>" +
+                "A cough can be caused by a cold, allergies, throat irritation, asthma or respiratory infections.<br><br>" +
+                "Drink enough fluids and get adequate rest. If you have difficulty breathing or the cough is severe or persistent, consult a doctor.";
+
+        } else if (question.includes("water") ||
+                   question.includes("hydration")) {
+
+            answer.innerHTML =
+                "<b>Hydration:</b><br>" +
+                "Staying hydrated is important for normal body functions. Drink fluids regularly, especially during hot weather or physical activity.";
+
+        } else if (question.includes("sleep")) {
+
+            answer.innerHTML =
+                "<b>Sleep:</b><br>" +
+                "Good sleep supports physical and mental health. Try to maintain a regular sleep schedule and avoid excessive screen use before bedtime.";
+
+        } else if (question.includes("exercise")) {
+
+            answer.innerHTML =
+                "<b>Exercise:</b><br>" +
+                "Regular physical activity can support heart health, strength, mood and overall fitness. Start gradually and choose activities appropriate for your fitness level.";
+
+        } else if (question.includes("diabetes")) {
+
+            answer.innerHTML =
+                "<b>Diabetes:</b><br>" +
+                "Common symptoms can include increased thirst, frequent urination, tiredness, blurred vision and unexplained weight changes. Diabetes should be diagnosed through appropriate medical testing.";
+
+        } else {
+
+            answer.innerHTML =
+                "<b>AI Healthcare Assistant:</b><br>" +
+                "I can provide general information about topics such as fever, headache, cough, hydration, sleep, exercise and diabetes.<br><br>" +
+                "Please ask a specific health-related question.";
+        }
+    }
+         
+    </script>
+
+</body>
+
+</html>
